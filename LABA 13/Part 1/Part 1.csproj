@@ -48,9 +48,13 @@
     <Compile Include="IAnimal.cs" />
     <Compile Include="KingdomAnimals.cs" />
     <Compile Include="MyZoo.cs" />
+    <Compile Include="ObjectNotFoundException.cs" />
     <Compile Include="OrderArtiodactyls.cs" />
+    <Compile Include="CollectionOverflowException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support.cs" />
+    <Compile Include="TooBigWeightException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

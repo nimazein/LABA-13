@@ -20,18 +20,7 @@ namespace Part_1
             HasHorns = hasHorns;
             Habitat = habitat;
         }
-        public static OrderArtiodactyl GetRandom()
-        {
-            Random rnd = new Random();
-            int weight = rnd.Next(100, 2000);
-            string name = $"Парнокопытное {Convert.ToChar(rnd.Next(65, 90))}{rnd.Next(100)}";
-            int lifeExpectancy = rnd.Next(20, 120);
-            int incubationPeriod = rnd.Next(3, 12);
-            bool hasHorns = rnd.Next(100) <= 20;
-            string habitat = $"Среда обитания  {Convert.ToChar(rnd.Next(65, 90))}{rnd.Next(100)}";
-
-            return new OrderArtiodactyl(hasHorns, habitat, incubationPeriod, lifeExpectancy, weight, name);
-        }
+        
 
         public override string ToString()
         {
