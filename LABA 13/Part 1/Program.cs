@@ -13,15 +13,25 @@ namespace Part_1
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
+            Part1();
 
+            Console.Clear();
+            Console.WriteLine("Часть 2");
+            Console.ReadKey();
+            Part2();
+
+        }
+
+        // Раrt 1
+        static void Part1()
+        {
             FillRandomly();
-            GetLength();
-            AddElement();
-            GetLength();
-            RemoveElement();
-            GetLength();
-            Sort();
-
+            //GetLength();
+            //AddElement();
+            //GetLength();
+            //RemoveElement();
+            //GetLength();
+           //Sort();
         }
         static void FillRandomly()
         {
@@ -48,31 +58,31 @@ namespace Part_1
             Console.WriteLine("Добавление элемента в коллекцию");
 
             KingdomAnimals animal = support.InputAnimalParameters();
-            zoo.Add(animal);
-            Console.WriteLine($"В коллекцию добавлен объект: {animal.ToString()}");
+            int position = zoo.AddToZoo(animal);
 
-            Console.ReadKey();
-                
+            Console.WriteLine($"В коллекцию добавлен объект: {animal.ToString()} " +
+                $"на позицию {position}");
+
+            Console.ReadKey();                
         }
         static void RemoveElement()
         {
             Console.Clear();
             Console.WriteLine("Удаление элемента из коллекции");
+            Console.WriteLine();
+            Console.Write("Удалить по индексу: ");
 
+            int idx = Convert.ToInt32(Console.ReadLine());
 
-            KingdomAnimals animal = support.InputAnimalParameters();
-            if (zoo.Contains(animal))
+            if (zoo.Remove(idx))
             {
-                zoo.Remove(animal);
-                Console.WriteLine($"Удален объект: {animal.ToString()}");
+                Console.WriteLine($"Объект с индексом {idx} удален");
             }
             else
             {
-                Console.WriteLine("Такого объекта нет в коллекции");
+                Console.WriteLine($"Объекта с таким индексом в коллекции нет");
             }
-
             Console.ReadKey();
-
         }
         static void Sort()
         {
@@ -88,6 +98,59 @@ namespace Part_1
             zoo.PrintCollection();
 
             Console.ReadKey();
+        }
+
+        // Part 2
+        static void Part2()
+        {
+            MyNewCollection PermZoo = new MyNewCollection("Пермский зоопарк");
+            MyNewCollection MoscowZoo = new MyNewCollection("Московский зоопарк");
+
+            Journal journal1 = new Journal();
+            PermZoo.CollectionCountChanged += new MyNewCollection.CollectionHandler(journal1.CollectionCountChanged);
+            PermZoo.CollectionReferenceChanged += new MyNewCollection.CollectionHandler(journal1.CollectionReferenceChanged);
+
+            Journal journal2 = new Journal();
+            PermZoo.CollectionReferenceChanged += new MyNewCollection.CollectionHandler(journal2.CollectionReferenceChanged);
+            MoscowZoo.CollectionReferenceChanged += new MyNewCollection.CollectionHandler(journal2.CollectionReferenceChanged);
+
+            IAnimal[] animals = zoo.Zoo.ToArray();
+
+            Console.WriteLine("Добавление массива объектов в коллекцию");
+            Console.ReadKey();
+            Console.Clear();
+            PermZoo.Add(animals);
+            MoscowZoo.Add(animals);
+
+            Console.WriteLine("Добавление значений по умолчанию в коллекцию");
+            Console.ReadKey();
+            Console.Clear();
+            PermZoo.AddDefaults();
+            MoscowZoo.AddDefaults();
+
+            Console.WriteLine("Удаление элементов из коллекции");
+            Console.ReadKey();
+            Console.Clear();
+            PermZoo.Remove(2);
+            PermZoo.Remove(1);
+            MoscowZoo.Remove(3);
+            MoscowZoo.Remove(1);
+
+            Console.WriteLine("Присвоение других значений некоторым элементам");
+            Console.ReadKey();
+            Console.Clear();
+            PermZoo[4] = new KingdomAnimals(150000, "Кит");
+            MoscowZoo[2] = new ClassMammals(9, 70, 80, "Человек");
+
+            Console.WriteLine("Журнал 1");         
+            Console.WriteLine(journal1.ToString());
+            Console.ReadKey();
+
+            Console.WriteLine("Журнал 2");
+            Console.WriteLine(journal2.ToString());
+            Console.ReadKey();
+
+
         }
     }
 }

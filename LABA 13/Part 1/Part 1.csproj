@@ -45,8 +45,12 @@
   <ItemGroup>
     <Compile Include="ClassBirds.cs" />
     <Compile Include="ClassMammals.cs" />
+    <Compile Include="CollectionHandlerEventArgs.cs" />
     <Compile Include="IAnimal.cs" />
+    <Compile Include="Journal.cs" />
+    <Compile Include="JournalEntry.cs" />
     <Compile Include="KingdomAnimals.cs" />
+    <Compile Include="MyNewCollection.cs" />
     <Compile Include="MyZoo.cs" />
     <Compile Include="ObjectNotFoundException.cs" />
     <Compile Include="OrderArtiodactyls.cs" />

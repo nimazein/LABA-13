@@ -16,6 +16,10 @@ namespace Part_1
             {
                 return zoo;
             }
+            set
+            {
+                zoo = value;
+            }
         }
 
         public MyZoo()
@@ -74,31 +78,26 @@ namespace Part_1
 
             }
         }
-        public void Add(IAnimal animal)
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        public int AddToZoo(IAnimal animal)
         {
             zoo.Add(animal);
+            return zoo.Count;
         }
-        public void Remove(IAnimal animal)
+        public virtual bool Remove(int position)
         {
-            try
+            if (position > zoo.Count + 1)
             {
-                foreach (IAnimal el in zoo)
-                {
-                    if (el.Name == animal.Name)
-                    {
-                        if (el.Weight == animal.Weight)
-                        {
-                            zoo.Remove(el);
-                        }
-                    }
-                }
-
+                return false;
             }
-            catch
+            else
             {
-
+                zoo.RemoveAt(position);
+                return true;
             }
-            
         }
         public void SortByName()
         {
@@ -133,7 +132,7 @@ namespace Part_1
             }
 
         }
-        public IAnimal this[int index]
+        public virtual IAnimal this[int index]
         {
             get
             {
