@@ -12,11 +12,7 @@ namespace Part_1
         public string Change { get; set; }
         public object Link { get; set; }
 
-        public CollectionHandlerEventArgs()
-        {
-            
-        }
-
+        public CollectionHandlerEventArgs(){}
         public CollectionHandlerEventArgs(string name, string change, object link)
         {
             Name = name;

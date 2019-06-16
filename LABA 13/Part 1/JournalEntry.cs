@@ -12,10 +12,7 @@ namespace Part_1
         public string Change { get; set; }
         public string AnimalInfo { get; set; }
 
-        public JournalEntry()
-        {
-                
-        }
+        public JournalEntry() { }
         public JournalEntry(string name, string change, string animalInfo)
         {
             Name = name;
@@ -26,6 +23,5 @@ namespace Part_1
         {
             return $"Коллекция: {Name}, изменение: {Change}, поля объекта: {AnimalInfo}";
         }
-
     }
 }

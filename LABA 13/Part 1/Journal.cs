@@ -10,10 +10,8 @@ namespace Part_1
     {
         private List<JournalEntry> entries = new List<JournalEntry>();
 
-
         public void CollectionCountChanged(object sourse, CollectionHandlerEventArgs args) 
         {
-
             JournalEntry entry = new JournalEntry(args.Name, args.Change, args.Link.ToString());
             entries.Add(entry);
         }
@@ -22,8 +20,6 @@ namespace Part_1
             JournalEntry entry = new JournalEntry(args.Name, args.Change, args.Link.ToString());
             entries.Add(entry);
         }
-
-
         public override string ToString()
         {
             string output = "";

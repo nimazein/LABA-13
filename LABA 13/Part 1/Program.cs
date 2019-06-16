@@ -26,12 +26,12 @@ namespace Part_1
         static void Part1()
         {
             FillRandomly();
-            //GetLength();
-            //AddElement();
-            //GetLength();
-            //RemoveElement();
-            //GetLength();
-           //Sort();
+            GetLength();
+            AddElement();
+            GetLength();
+            RemoveElement();
+            GetLength();
+            Sort();
         }
         static void FillRandomly()
         {
@@ -47,7 +47,6 @@ namespace Part_1
        
         static void GetLength()
         {
-
             Console.Clear();
             Console.WriteLine($"Объектов в коллекции: {zoo.Length}");
             Console.ReadKey();
@@ -149,8 +148,6 @@ namespace Part_1
             Console.WriteLine("Журнал 2");
             Console.WriteLine(journal2.ToString());
             Console.ReadKey();
-
-
         }
     }
 }

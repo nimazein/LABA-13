@@ -78,59 +78,13 @@ namespace Part_1
             OnCollectionCountChanged(this, new CollectionHandlerEventArgs(NameOfCollection, "был добавлен элемент", animal));
         }
 
-
         public virtual void OnCollectionCountChanged(object source, CollectionHandlerEventArgs args) 
         {
             CollectionCountChanged?.Invoke(source, args);
         }
-
         public virtual void OnCollectionReferenceChanged(object source, CollectionHandlerEventArgs args)
         {
             CollectionReferenceChanged?.Invoke(source, args);
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        public virtual void OnCollectionCountChanged(object source, CollectionHandlerEventArgs args)
-        {
-            if (CollectionCountChanged != null)
-                CollectionCountChanged(source, args);
-        }
-        public virtual void OnCollectionReferenceChanged(object source, CollectionHandlerEventArgs args)
-        {
-            if (CollectionReferenceChanged != null)
-                CollectionReferenceChanged(source, args);
-        }
-        
-
-        public override int Add(Person p)
-        {
-            OnCollectionCountChanged(this, new CollectionHandlerEventArgs(this.Name, "add", p));
-            return base.Add(p);
-
-        }*/
-
     }
 }

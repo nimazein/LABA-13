@@ -132,6 +132,10 @@ namespace Part_1
             }
 
         }
+        public void Clear()
+        {
+            zoo.Clear();
+        }
         public virtual IAnimal this[int index]
         {
             get
